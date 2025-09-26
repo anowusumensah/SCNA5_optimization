@@ -1,0 +1,9 @@
+function out = INaInActivationNew(tNow, Vcm, wait)
+    Vhold = -140;
+    Vtest = -30;
+    % % Vtest = -20;
+    out = (tNow <= wait).*Vhold + ...
+        (tNow > wait & tNow <= (wait + 500)).*Vcm + ...
+        ((wait + 500) < tNow & tNow <= (wait + 520) ).*Vtest +...
+        (tNow > (wait + 520)).*Vhold;
+end
